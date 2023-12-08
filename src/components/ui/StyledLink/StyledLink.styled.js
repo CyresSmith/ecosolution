@@ -4,7 +4,26 @@ import theme from 'theme';
 export const Link = styled.a`
   display: inline-flex;
   align-items: center;
-  border-radius: 19.5px;
+  height: 40px;
+  border: ${p => {
+    switch (p.variant) {
+      case 'transparent':
+        return `${theme.borders.normal}`;
+
+      default:
+        return `none`;
+    }
+  }};
+  border-color: ${p => {
+    switch (p.variant) {
+      case 'transparent':
+        return `${theme.colors.primary.regular}`;
+
+      default:
+        return `none`;
+    }
+  }};
+  border-radius: 20px;
   gap: 12px;
   padding: ${p => {
     switch (p.iconSize) {
@@ -12,7 +31,7 @@ export const Link = styled.a`
         return `10px 16px`;
 
       case 'l':
-        return `10px 4px 10px 16px`;
+        return `4px 4px 4px 16px`;
 
       default:
         return `10px 16px`;
@@ -54,28 +73,19 @@ export const Link = styled.a`
           return `${theme.colors.accent.regular}`;
 
         case 'transparent':
-          return `transparent`;
+          return `${theme.colors.accent.regular}`;
 
         default:
           return `${theme.colors.primary.regular}`;
       }
     }};
-    fill: ${p => {
+    border-color: ${p => {
       switch (p.variant) {
-        case 'primary':
-          return `${theme.colors.accent.regular}`;
-
-        case 'secondary':
+        case 'transparent':
           return `${theme.colors.accent.dark}`;
 
-        case 'light':
-          return `${theme.colors.accent.regular}`;
-
-        case 'transparent':
-          return `transparent`;
-
         default:
-          return `${theme.colors.primary.regular}`;
+          return `none`;
       }
     }};
     background-color: ${p => {
@@ -90,7 +100,7 @@ export const Link = styled.a`
           return `${theme.colors.accent.regular}`;
 
         case 'transparent':
-          return `transparent`;
+          return `${theme.colors.accent.dark}`;
 
         default:
           return `${theme.colors.primary.regular}`;
@@ -110,21 +120,19 @@ export const Link = styled.a`
             return `${theme.colors.accent.regular}`;
 
           case 'transparent':
-            return `transparent`;
+            return `${theme.colors.accent.regular}`;
 
           default:
             return `${theme.colors.primary.regular}`;
         }
       }};
     }
-
-    > span > svg {
-      display: block;
-      fill: ${theme.colors.accent.dark};
-    }
   }
 
   > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: ${p => {
       switch (p.iconSize) {
         case 's':
@@ -162,7 +170,7 @@ export const Link = styled.a`
           return `${theme.colors.accent.regular}`;
 
         case 'transparent':
-          return `transparent`;
+          return `${theme.colors.accent.regular}`;
 
         default:
           return `${theme.colors.primary.regular}`;
@@ -172,7 +180,6 @@ export const Link = styled.a`
     transition: ${theme.transition.primary};
 
     > svg {
-      display: none;
       fill: inherit;
     }
   }

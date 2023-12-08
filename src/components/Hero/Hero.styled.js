@@ -35,7 +35,7 @@ export const Contacts = styled.p`
   display: flex;
 `;
 
-export const Title = styled.h1`
+export const HeroTitle = styled.h1`
   font-family: ${theme.fonts.heading};
   font-size: ${theme.fontSizes.xxl};
   font-weight: ${theme.fontWeights.regular};

@@ -1,17 +1,9 @@
 import heroImg from 'assets/img/wind-turbine-clean-energy.jpg';
 import ArrowRight from 'assets/svg/arrow_right.svg?react';
-import Container from 'components/shared/Container';
 import ImageBox from 'components/shared/ImageBox';
-import { StyledHr } from 'components/shared/StyledHr.styled';
+import { Container, HeroSection, Hr } from 'components/shared/Shared.styled';
 import StyledLink from 'components/ui/StyledLink';
-import {
-  HeroSection,
-  Info,
-  InfoBox,
-  RightSide,
-  Text,
-  Title,
-} from './Hero.styled';
+import { HeroTitle, Info, InfoBox, RightSide, Text } from './Hero.styled';
 
 const Hero = () => {
   return (
@@ -19,7 +11,7 @@ const Hero = () => {
       <Container>
         <InfoBox>
           <Info mb={24} variant="column">
-            <Title>RENEWABLE ENERGY For any task</Title>
+            <HeroTitle>RENEWABLE ENERGY For any task</HeroTitle>
 
             <RightSide>
               <Text>
@@ -29,7 +21,7 @@ const Hero = () => {
               </Text>
 
               <StyledLink
-                href="#contacts"
+                href="#cases"
                 variant="transparent"
                 iconSize="l"
                 Icon={ArrowRight}
@@ -39,7 +31,7 @@ const Hero = () => {
             </RightSide>
           </Info>
 
-          <StyledHr />
+          <Hr />
 
           <Info mt={12} variant="row">
             <p>79005, Ukraine, Lviv, street. Shota Rustaveli, 7</p>

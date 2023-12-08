@@ -1,8 +1,14 @@
 import { Button } from './IconButton.styled';
 
-const IconButton = ({ Icon, size = 's', variant = 'primary' }) => {
+const IconButton = ({
+  Icon,
+  size = 's',
+  variant = 'primary',
+  flip = false,
+  onClick,
+}) => {
   return (
-    <Button size={size} variant={variant}>
+    <Button onClick={onClick} size={size} variant={variant} flip={flip}>
       <Icon />
     </Button>
   );

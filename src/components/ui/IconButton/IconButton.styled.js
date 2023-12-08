@@ -13,6 +13,9 @@ export const Button = styled.button`
       case 'l':
         return '66px';
 
+      case 'xl':
+        return '84px';
+
       default:
         return '32px';
     }
@@ -27,6 +30,9 @@ export const Button = styled.button`
 
       case 'l':
         return '66px';
+
+      case 'xl':
+        return '84px';
 
       default:
         return '32px';
@@ -68,7 +74,24 @@ export const Button = styled.button`
     }
   }};
   outline: none;
-  border: none;
+  border: ${p => {
+    switch (p.variant) {
+      case 'transparent':
+        return `${theme.borders.normal}`;
+
+      default:
+        return `none`;
+    }
+  }};
+  border-color: ${p => {
+    switch (p.variant) {
+      case 'transparent':
+        return `${theme.colors.accent.dark}`;
+
+      default:
+        return `unset`;
+    }
+  }};
   transition: ${theme.transition.primary};
   cursor: pointer;
   border-radius: 50%;
@@ -92,9 +115,68 @@ export const Button = styled.button`
           return `${theme.colors.primary.regular}`;
       }
     }};
+    border-color: ${p => {
+      switch (p.variant) {
+        case 'transparent':
+          return `${theme.colors.accent.regular}`;
+
+        default:
+          return `unset`;
+      }
+    }};
+
+    > svg {
+      fill: ${p => {
+        switch (p.variant) {
+          case 'transparent':
+            return `${theme.colors.accent.regular}`;
+
+          default:
+            return `unset`;
+        }
+      }};
+    }
   }
 
   > svg {
+    transition: ${theme.transition.primary};
+    transform: ${p => (p.flip ? 'scaleX(-1)' : 'scaleX(1)')};
     fill: inherit;
+    width: ${p => {
+      switch (p.size) {
+        case 's':
+          return '16px';
+
+        case 'm':
+          return '16px';
+
+        case 'l':
+          return '66px';
+
+        case 'xl':
+          return '36px';
+
+        default:
+          return '32px';
+      }
+    }};
+    height: ${p => {
+      switch (p.size) {
+        case 's':
+          return '16px';
+
+        case 'm':
+          return '16px';
+
+        case 'l':
+          return '66px';
+
+        case 'xl':
+          return '36px';
+
+        default:
+          return '32px';
+      }
+    }};
   }
 `;

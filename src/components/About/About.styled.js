@@ -13,6 +13,8 @@ export const TopBox = styled.div`
 export const Text = styled.p`
   text-align: justify;
   letter-spacing: -0.64px;
+  width: 459px;
+  margin-left: auto;
 `;
 
 export const List = styled.ul`

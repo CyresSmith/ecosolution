@@ -33,11 +33,6 @@ export const TwoHalvesBox = styled.div`
   grid-template-columns: 1fr 1px 1fr;
   height: ${p => (p.height ? `${p.height}px` : '100%;')};
   margin: ${p => (p.margin ? `${p.margin}` : '0')};
-
-  > div {
-    width: 1px;
-    border-left: 1px solid ${theme.colors.primary.regular};
-  }
 `;
 
 export const VerticalHr = styled.div`

@@ -5,6 +5,7 @@ import QualityIcon from 'assets/svg/ranking.svg?react';
 import {
   Container,
   Section,
+  Title,
   TwoHalvesBox,
   VerticalHr,
 } from 'components/shared/Shared.styled';
@@ -48,10 +49,10 @@ const About = () => {
   return (
     <Section>
       <Container>
-        <TwoHalvesBox>
-          <Text width={365} align="left">
+        <TwoHalvesBox margin="0 0 126px 0">
+          <Title width={365} align="left">
             Main values of our company
-          </Text>
+          </Title>
 
           <VerticalHr />
 

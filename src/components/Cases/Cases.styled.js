@@ -25,8 +25,19 @@ export const SlidesCount = styled.span`
 `;
 
 export const SlidesBox = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
+  height: 506px;
+  width: 100%;
   margin-top: 120px;
+  overflow: hidden;
+  position: relative;
+`;
+
+export const SlideList = styled.ul`
+  height: 100%;
+  display: flex;
+  gap: 48px;
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+  position: absolute;
+  top: 0;
 `;

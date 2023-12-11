@@ -1,8 +1,13 @@
 import styled from '@emotion/styled';
 import theme from 'theme';
 
-export const SlideBox = styled.figure`
+export const SlideBox = styled.li`
+  flex-shrink: 0;
+`;
+
+export const SlideFigure = styled.figure`
   height: 506px;
+  flex-basis: 596px;
   margin: 0;
   background-color: ${theme.colors.primary.light};
 `;

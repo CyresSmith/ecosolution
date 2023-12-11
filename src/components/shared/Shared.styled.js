@@ -13,12 +13,12 @@ export const Container = styled.div`
 
 export const HeroSection = styled.section`
   width: 100%;
-  padding: 264px 0 60px;
+  padding: 264px 0 0 0;
 `;
 
 export const Section = styled.section`
   width: 100%;
-  padding: 60px 0;
+  padding: 120px 0 0 0;
 `;
 
 export const Hr = styled.hr`

@@ -6,9 +6,16 @@ const IconButton = ({
   variant = 'primary',
   flip = false,
   onClick,
+  disabled,
 }) => {
   return (
-    <Button onClick={onClick} size={size} variant={variant} flip={flip}>
+    <Button
+      onClick={onClick}
+      size={size}
+      variant={variant}
+      flip={flip}
+      disabled={disabled}
+    >
       <Icon />
     </Button>
   );

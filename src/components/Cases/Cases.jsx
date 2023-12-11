@@ -1,9 +1,3 @@
-import kherson from 'assets/img/kherson.jpg';
-import lviv from 'assets/img/lviv.jpg';
-import rivne from 'assets/img/rivne.jpg';
-import zaporizhia from 'assets/img/zaporizhia.jpg';
-import zhytomyr from 'assets/img/zhytomyr.jpg';
-
 import ArrowRight from 'assets/svg/arrow_right.svg?react';
 import {
   Container,
@@ -13,11 +7,26 @@ import {
   VerticalHr,
 } from 'components/shared/Shared.styled';
 import IconButton from 'components/ui/IconButton';
-import { useEffect, useState } from 'react';
-import { ActionBox, BtnBox, SlidesBox, SlidesCount } from './Cases.styled';
+import { useCallback, useEffect, useState } from 'react';
+import {
+  ActionBox,
+  BtnBox,
+  SlideList,
+  SlidesBox,
+  SlidesCount,
+} from './Cases.styled';
+
+import kherson from 'assets/img/kherson.jpg';
+import lviv from 'assets/img/lviv.jpg';
+import rivne from 'assets/img/rivne.jpg';
+import zaporizhia from 'assets/img/zaporizhia.jpg';
+import zhytomyr from 'assets/img/zhytomyr.jpg';
 import Slide from './Slide';
 
-const slides = [
+const STEP = 596 + 48;
+const TRANSITION_DURATION = 300;
+
+const slidesData = [
   {
     id: 1,
     place: 'Lviv Region, Radekhiv town',
@@ -60,37 +69,90 @@ const slides = [
   },
 ];
 
-const Cases = () => {
+const Cases = ({ children, slidesCount }) => {
   const [slide, setSlide] = useState(1);
-  const [slidesCount, setSlidesCount] = useState(0);
+  const [slides, setSlides] = useState([]);
+  const [clonesCount, setClonesCount] = useState({
+    head: 1,
+    tail: 2,
+  });
+  const [offset, setOffset] = useState(-clonesCount.head * STEP);
+  const [transition, setTransition] = useState(TRANSITION_DURATION);
+  const [disabled, setDisabled] = useState(false);
 
-  const slideIncrement = () => {
+  const handleLeftClick = useCallback(() => {
+    setOffset(prev => {
+      const newOffset = prev + STEP;
+      return Math.min(newOffset, 0);
+    });
+
     setSlide(prev => {
-      if (prev === slidesCount) {
+      if (prev === 1) {
+        return slidesData.length;
+      }
+
+      return prev - 1;
+    });
+  }, [STEP]);
+
+  const handleRightClick = useCallback(() => {
+    setOffset(prev => {
+      const newOffset = prev - STEP;
+      const maxOffset = -(STEP * (slides.length - 1));
+      return Math.max(newOffset, maxOffset);
+    });
+
+    setSlide(prev => {
+      if (prev === slidesData.length) {
         return 1;
       }
 
       return prev + 1;
     });
-  };
-
-  const slideDecrement = () => {
-    setSlide(prev => {
-      if (prev === 1) {
-        return slidesCount;
-      }
-
-      return prev - 1;
-    });
-  };
+  }, [STEP, slides.length]);
 
   useEffect(() => {
-    if (!slides.length) {
+    setSlides([
+      slidesData[slidesData.length - 1],
+      ...slidesData,
+      slidesData[0],
+      slidesData[1],
+    ]);
+
+    setClonesCount({ head: 1, tail: 2 });
+    setOffset(-clonesCount.head * STEP);
+  }, [clonesCount.head]);
+
+  useEffect(() => {
+    if (offset === 0) {
+      setDisabled(true);
+      setTransition(0);
+      setTimeout(() => {
+        setOffset(-(STEP * (slides.length - 1 - clonesCount.tail)));
+      }, TRANSITION_DURATION);
+
       return;
     }
 
-    setSlidesCount(slides.length);
-  }, []);
+    if (offset === -(STEP * (slides.length - 2))) {
+      setDisabled(true);
+      setTransition(0);
+      setTimeout(() => {
+        setOffset(-(clonesCount.head * STEP));
+      }, TRANSITION_DURATION);
+
+      return;
+    }
+  }, [clonesCount, offset, slides]);
+
+  useEffect(() => {
+    if (transition === 0) {
+      setTimeout(() => {
+        setTransition(TRANSITION_DURATION);
+        setDisabled(false);
+      }, TRANSITION_DURATION);
+    }
+  }, [transition]);
 
   return (
     <Section>
@@ -102,7 +164,7 @@ const Cases = () => {
           <ActionBox>
             <SlidesCount>
               {slide}
-              <span>/{slidesCount}</span>
+              <span>/{slidesData.length}</span>
             </SlidesCount>
 
             <BtnBox>
@@ -111,24 +173,32 @@ const Cases = () => {
                 variant="transparent"
                 Icon={ArrowRight}
                 flip
-                onClick={slideDecrement}
+                onClick={handleLeftClick}
+                disabled={disabled}
               />
+
               <IconButton
                 size="xl"
                 variant="transparent"
                 Icon={ArrowRight}
-                onClick={slideIncrement}
+                onClick={handleRightClick}
+                disabled={disabled}
               />
             </BtnBox>
           </ActionBox>
         </TwoHalvesBox>
 
         <SlidesBox>
-          <Slide key={slide.id} {...slides[slide - 1]} />
-          <Slide
-            key={slide.id}
-            {...slides[slide === slidesCount ? 0 : slide]}
-          />
+          <SlideList
+            style={{
+              transform: `translateX(${offset}px)`,
+              transitionDuration: `${transition}ms`,
+            }}
+          >
+            {slides.map((item, i) => (
+              <Slide key={i} {...item} />
+            ))}
+          </SlideList>
         </SlidesBox>
       </Container>
     </Section>

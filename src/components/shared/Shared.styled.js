@@ -19,6 +19,10 @@ export const HeroSection = styled.section`
 export const Section = styled.section`
   width: 100%;
   padding: 120px 0 0 0;
+
+  :last-of-type {
+    padding: 120px 0 120px 0;
+  }
 `;
 
 export const Hr = styled.hr`

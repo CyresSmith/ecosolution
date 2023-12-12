@@ -47,3 +47,23 @@ export const Text = styled.p`
   justify-content: space-between;
   margin-top: 24px;
 `;
+
+export const DotWithArrow = styled.div`
+  width: 66px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: ${p =>
+    p.isHovered ? theme.colors.accent.regular : theme.colors.accent.dark};
+  background-color: ${p =>
+    p.isHovered ? theme.colors.accent.dark : theme.colors.accent.regular};
+  border-radius: 50%;
+  transition: ${theme.transition.primary};
+
+  > svg {
+    width: 28px;
+    height: 28px;
+    transform: rotate(-45deg);
+  }
+`;

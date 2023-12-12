@@ -14,6 +14,7 @@ const theme = {
       light: '#EAEDF1',
       dark: '#292D32',
     },
+    danger: '#D28B8B',
   },
 
   fonts: {

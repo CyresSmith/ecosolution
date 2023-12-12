@@ -7,7 +7,7 @@ import { HeroTitle, Info, InfoBox, RightSide, Text } from './Hero.styled';
 
 const Hero = () => {
   return (
-    <HeroSection>
+    <HeroSection id="top">
       <Container>
         <InfoBox>
           <Info mb={24} variant="column">
@@ -21,7 +21,7 @@ const Hero = () => {
               </Text>
 
               <StyledLink
-                href="#cases"
+                href="cases"
                 variant="transparent"
                 iconSize="l"
                 Icon={ArrowRight}

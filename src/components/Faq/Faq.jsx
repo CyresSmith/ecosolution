@@ -16,7 +16,7 @@ const questions = [
   {
     id: 2,
     title:
-      "What sets EcoSolution/'s renewable energy solutions apart from others on the market?",
+      "What sets EcoSolution's renewable energy solutions apart from others on the market?",
     text: 'Wind turbines and solar panels generate electricity through different mechanisms. Wind turbines harness the kinetic energy of the wind to turn blades, which then drive a generator. Solar panels convert sunlight into electricity through the photovoltaic effect. When integrated into a renewable energy system, these technologies complement each other by providing a continuous and reliable power supply. Wind power is often more abundant during certain times, while solar power is consistent during daylight hours, resulting in a more stable overall energy output.',
   },
   {
@@ -75,7 +75,7 @@ const Faq = () => {
                 Didn&#39;t find the answer to your question?
               </QuestionTitle>
 
-              <StyledLink Icon={ArrowDown} href="#contacts">
+              <StyledLink Icon={ArrowDown} href="contacts">
                 Contact Us
               </StyledLink>
             </div>

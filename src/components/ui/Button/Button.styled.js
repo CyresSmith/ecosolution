@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
-import { Link as ScrollLink } from 'react-scroll';
 import theme from 'theme';
 
-export const Link = styled(ScrollLink)`
+export const StyledButton = styled.button`
   display: inline-flex;
   align-items: center;
   height: 40px;
@@ -27,7 +26,7 @@ export const Link = styled(ScrollLink)`
   border-radius: 20px;
   gap: 12px;
   padding: ${p => {
-    switch (p.icon) {
+    switch (p.iconSize) {
       case 's':
         return `10px 16px`;
 
@@ -61,7 +60,12 @@ export const Link = styled(ScrollLink)`
   cursor: pointer;
   transition: ${theme.transition.primary};
 
-  :hover {
+  :disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  :hover:not(:disabled) {
     color: ${p => {
       switch (p.variant) {
         case 'primary':
@@ -135,7 +139,7 @@ export const Link = styled(ScrollLink)`
     align-items: center;
     justify-content: center;
     width: ${p => {
-      switch (p.icon) {
+      switch (p.iconSize) {
         case 's':
           return '14px';
 
@@ -147,7 +151,7 @@ export const Link = styled(ScrollLink)`
       }
     }};
     height: ${p => {
-      switch (p.icon) {
+      switch (p.iconSize) {
         case 's':
           return '14px';
 

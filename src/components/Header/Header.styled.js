@@ -9,8 +9,10 @@ export const HeaderBox = styled.header`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: ${theme.colors.background};
+  background-color: ${p =>
+    p.scrollValue > 125 ? theme.colors.white : theme.colors.background};
   z-index: 1;
+  transition: ${theme.transition.primary};
 `;
 
 export const Wrapper = styled.div`

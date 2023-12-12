@@ -8,6 +8,7 @@ import {
 } from 'components/shared/Shared.styled';
 import IconButton from 'components/ui/IconButton';
 import { useCallback, useEffect, useState } from 'react';
+import { Element } from 'react-scroll';
 import {
   ActionBox,
   BtnBox,
@@ -93,7 +94,7 @@ const Cases = ({ children, slidesCount }) => {
 
       return prev - 1;
     });
-  }, [STEP]);
+  }, [STEP, slidesData.length]);
 
   const handleRightClick = useCallback(() => {
     setOffset(prev => {
@@ -109,7 +110,7 @@ const Cases = ({ children, slidesCount }) => {
 
       return prev + 1;
     });
-  }, [STEP, slides.length]);
+  }, [STEP, slides.length, slidesData.length]);
 
   useEffect(() => {
     setSlides([
@@ -155,53 +156,55 @@ const Cases = ({ children, slidesCount }) => {
   }, [transition]);
 
   return (
-    <Section>
-      <Container>
-        <TwoHalvesBox>
-          <Title width={398}>Successful cases of our company</Title>
-          <VerticalHr />
+    <Element name="cases">
+      <Section>
+        <Container>
+          <TwoHalvesBox>
+            <Title width={398}>Successful cases of our company</Title>
+            <VerticalHr />
 
-          <ActionBox>
-            <SlidesCount>
-              {slide}
-              <span>/{slidesData.length}</span>
-            </SlidesCount>
+            <ActionBox>
+              <SlidesCount>
+                {slide}
+                <span>/{slidesData.length}</span>
+              </SlidesCount>
 
-            <BtnBox>
-              <IconButton
-                size="xl"
-                variant="transparent"
-                Icon={ArrowRight}
-                flip
-                onClick={handleLeftClick}
-                disabled={disabled}
-              />
+              <BtnBox>
+                <IconButton
+                  size="xl"
+                  variant="transparent"
+                  Icon={ArrowRight}
+                  flip
+                  onClick={handleLeftClick}
+                  disabled={disabled}
+                />
 
-              <IconButton
-                size="xl"
-                variant="transparent"
-                Icon={ArrowRight}
-                onClick={handleRightClick}
-                disabled={disabled}
-              />
-            </BtnBox>
-          </ActionBox>
-        </TwoHalvesBox>
+                <IconButton
+                  size="xl"
+                  variant="transparent"
+                  Icon={ArrowRight}
+                  onClick={handleRightClick}
+                  disabled={disabled}
+                />
+              </BtnBox>
+            </ActionBox>
+          </TwoHalvesBox>
 
-        <SlidesBox>
-          <SlideList
-            style={{
-              transform: `translateX(${offset}px)`,
-              transitionDuration: `${transition}ms`,
-            }}
-          >
-            {slides.map((item, i) => (
-              <Slide key={i} {...item} />
-            ))}
-          </SlideList>
-        </SlidesBox>
-      </Container>
-    </Section>
+          <SlidesBox>
+            <SlideList
+              style={{
+                transform: `translateX(${offset}px)`,
+                transitionDuration: `${transition}ms`,
+              }}
+            >
+              {slides.map((item, i) => (
+                <Slide key={i} {...item} />
+              ))}
+            </SlideList>
+          </SlidesBox>
+        </Container>
+      </Section>
+    </Element>
   );
 };
 

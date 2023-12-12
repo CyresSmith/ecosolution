@@ -8,7 +8,15 @@ const StyledLink = ({
   href,
 }) => {
   return (
-    <Link iconSize={iconSize} variant={variant} href={href}>
+    <Link
+      icon={iconSize}
+      variant={variant}
+      to={href}
+      spy={true}
+      smooth={true}
+      offset={-70}
+      duration={1000}
+    >
       {children} <span>{Icon && <Icon />}</span>
     </Link>
   );

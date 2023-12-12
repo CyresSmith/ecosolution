@@ -17,7 +17,7 @@ export const Button = styled.button`
         return '84px';
 
       default:
-        return '32px';
+        return `${!isNaN(Number(p.size)) ? p.size : 32}px`;
     }
   }};
   height: ${p => {
@@ -35,7 +35,7 @@ export const Button = styled.button`
         return '84px';
 
       default:
-        return '32px';
+        return `${!isNaN(Number(p.size)) ? p.size : 32}px`;
     }
   }};
   padding: ${p => {
@@ -100,7 +100,7 @@ export const Button = styled.button`
     background-color: ${p => {
       switch (p.variant) {
         case 'primary':
-          return `${theme.colors.accent.regular}`;
+          return `${theme.colors.accent.dark}`;
 
         case 'secondary':
           return `${theme.colors.accent.dark}`;

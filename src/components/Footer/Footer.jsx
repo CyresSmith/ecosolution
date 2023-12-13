@@ -1,15 +1,14 @@
+import { GoogleMapsLink } from 'App';
 import Arrow from 'assets/svg/arrow_right.svg?react';
-import Facebook from 'assets/svg/facebook.svg?react';
-import Instagram from 'assets/svg/instagram.svg?react';
 import Logo from 'components/Logo';
 import { Container } from 'components/shared/Shared.styled';
+import SocialLinks from 'components/shared/SocialLinks';
 import {
   FirsColumn,
   FooterBox,
   FooterWrapper,
   IconLink,
   SecondColumn,
-  SocialBox,
   ThirdColumn,
 } from './Footer.styled';
 
@@ -23,21 +22,14 @@ const Footer = () => {
               <Logo />
             </li>
             <li>
-              <a href="https://maps.app.goo.gl/ahouFchHAyZCnA6G9">
+              <a href={GoogleMapsLink}>
                 79005, Ukraine, Lvivstreet. Shota Rustaveli, 7
               </a>
             </li>
           </FirsColumn>
 
           <SecondColumn>
-            <SocialBox>
-              <a href="https://www.facebook.com/">
-                <Facebook />
-              </a>
-              <a href="https://www.instagram.com/">
-                <Instagram />
-              </a>
-            </SocialBox>
+            <SocialLinks />
 
             <li>
               <a href="mailto:office@ecosolution.com">office@ecosolution.com</a>

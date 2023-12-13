@@ -14,7 +14,7 @@ const StyledLink = ({
       to={href}
       spy={true}
       smooth={true}
-      offset={-70}
+      offset={0}
       duration={1000}
     >
       {children} <span>{Icon && <Icon />}</span>

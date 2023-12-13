@@ -27,4 +27,10 @@ export const ActionBox = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+
+  > a {
+    @media screen and (width <= 767px) {
+      display: none;
+    }
+  }
 `;

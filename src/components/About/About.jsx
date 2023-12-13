@@ -5,11 +5,18 @@ import QualityIcon from 'assets/svg/ranking.svg?react';
 import {
   Container,
   Section,
-  Title,
-  TwoHalvesBox,
   VerticalHr,
 } from 'components/shared/Shared.styled';
-import { GridWrapper, ImagesGrid, ListGrid, Text } from './About.styled';
+import useMediaHook from 'hooks/useMediaHook';
+import { Element } from 'react-scroll';
+import {
+  GridWrapper,
+  ImagesGrid,
+  ListGrid,
+  Text,
+  TextBox,
+  Title,
+} from './About.styled';
 
 import img2 from 'assets/img/man-worker-firld-by-solar-panels 1.jpg';
 import img1 from 'assets/img/wind-farms-fields 1.jpg';
@@ -46,40 +53,49 @@ const values = [
 const images = [img1, img2];
 
 const About = () => {
+  const { MediaType } = useMediaHook();
+
   return (
-    <Section>
-      <Container>
-        <TwoHalvesBox margin="0 0 126px 0">
-          <Title width={365} align="left">
-            Main values of our company
-          </Title>
+    <Element name="about">
+      <Section>
+        <Container>
+          <TextBox>
+            <Title>Main values of our company</Title>
 
-          <VerticalHr />
+            {MediaType !== 'mobile' && <VerticalHr />}
 
-          <Text>
-            EcoSolution envisions a world where sustainable energy solutions
-            power a brighter and cleaner future for all. We aspire to be at the
-            forefront of the global shift towards renewable energy, leading the
-            way in innovative technologies that harness the power of nature to
-            meet the world&#39;s energy needs.
-          </Text>
-        </TwoHalvesBox>
+            <Text>
+              EcoSolution envisions a world where sustainable energy solutions
+              power a brighter and cleaner future for all. We aspire to be at
+              the forefront of the global shift towards renewable energy,
+              leading the way in innovative technologies that harness the power
+              of nature to meet the world&#39;s energy needs.
+            </Text>
+          </TextBox>
 
-        <GridWrapper>
-          <ImagesGrid rowsCount={values.length / 2}>
-            {images.map((src, index) => (
-              <ImageBox width="596px" key={index} src={src} />
-            ))}
-          </ImagesGrid>
+          <GridWrapper rowsCount={values.length / 2}>
+            {MediaType !== 'mobile' && (
+              <ImagesGrid rowsCount={values.length / 2}>
+                {images.map((src, index) => (
+                  <ImageBox
+                    width={MediaType === 'tablet' ? '342px' : '596px'}
+                    height="100%"
+                    key={index}
+                    src={src}
+                  />
+                ))}
+              </ImagesGrid>
+            )}
 
-          <ListGrid rowsCount={values.length / 2}>
-            {values.map((item, index) => (
-              <Card key={item.id} index={index} {...item} />
-            ))}
-          </ListGrid>
-        </GridWrapper>
-      </Container>
-    </Section>
+            <ListGrid rowsCount={values.length / 2}>
+              {values.map((item, index) => (
+                <Card key={item.id} index={index} {...item} />
+              ))}
+            </ListGrid>
+          </GridWrapper>
+        </Container>
+      </Section>
+    </Element>
   );
 };
 

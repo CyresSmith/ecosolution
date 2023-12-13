@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 import theme from 'theme';
 
 export const FooterBox = styled.footer`
-  padding: 0 0 40px 0;
+  padding: 120px 0 40px 0;
 `;
 
 export const FooterWrapper = styled.div`

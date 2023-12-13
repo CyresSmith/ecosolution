@@ -1,20 +1,65 @@
 import styled from '@emotion/styled';
+import theme from 'theme';
 
 const GRID_GAP = '48px';
 const GRID_COLUMNS = 'repeat(4, 1fr)';
 
-export const TopBox = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1px 1fr;
-  gap: 161px;
-  margin-bottom: 124px;
+export const TextBox = styled.div`
+  margin-bottom: 36px;
+
+  @media screen and (${theme.mediaBreakpoints.tablet.width} <= width) {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+  }
+
+  @media ${theme.mediaBreakpoints.tablet.media} {
+    margin-bottom: 100px;
+  }
+
+  @media ${theme.mediaBreakpoints.desktop.media} {
+    margin-bottom: 120px;
+  }
+`;
+
+export const Title = styled.h3`
+  width: 100%;
+  text-align: left;
+  font-family: ${theme.fonts.heading};
+  font-weight: ${theme.fontWeights.regular};
+  font-size: 28px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 24px;
+
+  @media screen and (${theme.mediaBreakpoints.tablet.width} <= width) {
+    margin-bottom: 0;
+  }
+
+  @media ${theme.mediaBreakpoints.tablet.media} {
+    width: 272px;
+    font-size: 36px;
+  }
+
+  @media ${theme.mediaBreakpoints.desktop.media} {
+    font-size: 48px;
+    width: 365px;
+  }
 `;
 
 export const Text = styled.p`
-  text-align: justify;
+  width: 100%;
   letter-spacing: -0.64px;
-  width: 459px;
-  margin-left: auto;
+  text-align: justify;
+
+  @media ${theme.mediaBreakpoints.tablet.media} {
+    width: 342px;
+    margin-left: auto;
+  }
+
+  @media ${theme.mediaBreakpoints.desktop.media} {
+    width: 459px;
+    margin-left: auto;
+  }
 `;
 
 export const List = styled.ul`
@@ -26,13 +71,20 @@ export const List = styled.ul`
 
 export const GridWrapper = styled.div`
   position: relative;
+  height: ${p =>
+    `calc(197px * ${p.rowsCount} + ((${p.rowsCount} - 1) * (${GRID_GAP} / 2)))`};
+
+  @media ${theme.mediaBreakpoints.desktop.media} {
+    height: ${p =>
+      `calc(339px * ${p.rowsCount} + ((${p.rowsCount} - 1) * ${GRID_GAP}))`};
+  }
 `;
 
 export const ImagesGrid = styled.div`
   display: grid;
   gap: ${GRID_GAP};
   grid-template-columns: ${GRID_COLUMNS};
-  grid-template-rows: ${p => `repeat(${p.rowsCount}, 1fr)`};
+  grid-template-rows: ${p => `repeat(${p.rowsCount}, 197px)`};
 
   > div:nth-of-type(4n - 3),
   > div:nth-of-type(4n - 1) {
@@ -43,6 +95,14 @@ export const ImagesGrid = styled.div`
   > div:nth-of-type(4n) {
     grid-column: 1 / 5;
   }
+
+  @media ${theme.mediaBreakpoints.tablet.media} {
+    gap: calc(${GRID_GAP} / 2);
+  }
+
+  @media ${theme.mediaBreakpoints.desktop.media} {
+    grid-template-rows: ${p => `repeat(${p.rowsCount}, 339px)`};
+  }
 `;
 
 export const ListGrid = styled.ul`
@@ -50,23 +110,39 @@ export const ListGrid = styled.ul`
   top: 0;
   left: 0;
   display: grid;
-  gap: ${GRID_GAP};
-  grid-template-columns: ${GRID_COLUMNS};
-  grid-template-rows: ${p => `repeat(${p.rowsCount}, 1fr)`};
+  gap: calc(${GRID_GAP} / 2);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: ${p => `repeat(${p.rowsCount}, 197px)`};
 
-  > li:nth-of-type(4n - 3) {
-    grid-column: 1 / 2;
+  @media screen and (${theme.mediaBreakpoints.tablet.width} <= width) {
+    grid-template-columns: ${GRID_COLUMNS};
+    gap: 36px;
+    > li:nth-of-type(4n - 3) {
+      grid-column: 1 / 2;
+    }
+
+    > li:nth-of-type(4n - 2) {
+      grid-column: 2 / span 3;
+    }
+
+    > li:nth-of-type(4n - 1) {
+      grid-column: 3 / 4;
+    }
+
+    > li:nth-of-type(4n) {
+      grid-column: 4 / 5;
+    }
   }
 
-  > li:nth-of-type(4n - 2) {
-    grid-column: 2 / span 3;
+  @media ${theme.mediaBreakpoints.tablet.media} {
+    gap: calc(${GRID_GAP} / 2);
   }
 
-  > li:nth-of-type(4n - 1) {
-    grid-column: 3 / 4;
+  @media ${theme.mediaBreakpoints.desktop.media} {
+    gap: ${GRID_GAP};
   }
 
-  > li:nth-of-type(4n) {
-    grid-column: 4 / 5;
+  @media ${theme.mediaBreakpoints.desktop.media} {
+    grid-template-rows: ${p => `repeat(${p.rowsCount}, 339px)`};
   }
 `;

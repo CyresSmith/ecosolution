@@ -1,11 +1,13 @@
 import About from 'components/About';
-import Cases from 'components/Cases';
-import ContactUs from 'components/ContactUs';
+// import Cases from 'components/Cases';
+// import ContactUs from 'components/ContactUs';
 import Electricity from 'components/Electricity';
-import Faq from 'components/Faq';
-import Footer from 'components/Footer';
+// import Faq from 'components/Faq';
+// import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Hero from 'components/Hero';
+
+export const GoogleMapsLink = 'https://maps.app.goo.gl/ahouFchHAyZCnA6G9';
 
 function App() {
   return (
@@ -15,10 +17,10 @@ function App() {
         <Hero />
         <About />
         <Electricity />
-        <Cases />
+        {/* <Cases />
         <Faq />
         <ContactUs />
-        <Footer />
+        <Footer /> */}
       </main>
     </>
   );

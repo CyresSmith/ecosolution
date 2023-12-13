@@ -9,68 +9,55 @@ import {
   ContentBox,
 } from './ContactUs.styled';
 
+import { GoogleMapsLink } from 'App';
 import Phone from 'assets/svg/call.svg?react';
-import Facebook from 'assets/svg/facebook.svg?react';
-import Instagram from 'assets/svg/instagram.svg?react';
 import Map from 'assets/svg/map.svg?react';
 import Email from 'assets/svg/sms.svg?react';
+import SocialLinks from 'components/shared/SocialLinks';
 import ContactForm from './ContactForm';
 
 const contacts = {
   phone: ['38 (098) 12 34 567', '38 (093) 12 34 567'],
   email: ['office@ecosolution.com'],
   address: ['79005, Ukraine, Lviv, street. Shota Rustaveli, 7'],
-  socialNetworks: ['https://www.facebook.com/', 'https://www.instagram.com/'],
 };
 
 const ContactUs = () => {
   const setContactItem = (key, item, i) => {
     let href = '';
     let Icon = '';
-    let isIcon = false;
 
-    if (item.includes('facebook')) {
-      href = item;
-      Icon = Facebook;
-      isIcon = true;
-    } else if (item.includes('instagram')) {
-      href = item;
-      Icon = Instagram;
-      isIcon = true;
-    } else {
-      switch (key) {
-        case 'phone':
-          href = `tel:${item}`;
-          Icon = Phone;
-          break;
+    switch (key) {
+      case 'phone':
+        href = `tel:${item}`;
+        Icon = Phone;
+        break;
 
-        case 'email':
-          href = `mailto:${item}`;
-          Icon = Email;
-          break;
+      case 'email':
+        href = `mailto:${item}`;
+        Icon = Email;
+        break;
 
-        case 'address':
-          href = `https://maps.app.goo.gl/ahouFchHAyZCnA6G9`;
-          Icon = Map;
-          break;
+      case 'address':
+        href = GoogleMapsLink;
+        Icon = Map;
+        break;
 
-        default:
-          href = '';
-          Icon = '';
-          break;
-      }
+      default:
+        href = '';
+        Icon = '';
+        break;
     }
 
     return (
       <ContactLink
-        isIcon={isIcon}
         href={href}
         rel="noopener, noreferrer, nofollow"
         target="blank"
         key={i}
       >
         {Icon !== '' && <Icon />}
-        {!isIcon && item}
+        {item}
       </ContactLink>
     );
   };
@@ -87,14 +74,12 @@ const ContactUs = () => {
             <address>
               <ContactsList>
                 {Object.keys(contacts).map((key, i) => {
-                  const isIcons = key === 'socialNetworks';
-
                   return (
                     <Contact key={i}>
                       <p>
                         <ContactName>{key}</ContactName>
 
-                        <ContactItemsBox onlyIcons={isIcons}>
+                        <ContactItemsBox>
                           {contacts[key].map((item, i) =>
                             setContactItem(key, item, i)
                           )}
@@ -103,6 +88,8 @@ const ContactUs = () => {
                     </Contact>
                   );
                 })}
+
+                <SocialLinks light />
               </ContactsList>
             </address>
             <ContactForm />

@@ -1,15 +1,17 @@
 import ArrowDown from 'assets/svg/arrow_down.svg?react';
-import Menu from 'assets/svg/menu.svg?react';
+import MenuIcon from 'assets/svg/menu.svg?react';
 import Logo from 'components/Logo/Logo';
 import { Container } from 'components/shared/Shared.styled';
 import IconButton from 'components/ui/IconButton';
+import Menu from 'components/ui/Menu';
 import StyledLink from 'components/ui/StyledLink';
 import { useEffect, useState } from 'react';
-import { Element } from 'react-scroll';
+
 import { ActionBox, HeaderBox, Wrapper } from './Header.styled';
 
 const Header = () => {
   const [scroll, setScroll] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +27,7 @@ const Header = () => {
   }, []);
 
   return (
-    <Element name="top">
+    <>
       <HeaderBox scrollValue={scroll}>
         <Container>
           <Wrapper>
@@ -34,7 +36,12 @@ const Header = () => {
             </nav>
 
             <ActionBox>
-              <IconButton size="s" variant="light" Icon={Menu} />
+              <IconButton
+                size="s"
+                variant="light"
+                Icon={MenuIcon}
+                onClick={() => setIsMenuOpen(true)}
+              />
 
               <StyledLink Icon={ArrowDown} href="contacts">
                 Get in touch
@@ -43,7 +50,9 @@ const Header = () => {
           </Wrapper>
         </Container>
       </HeaderBox>
-    </Element>
+
+      <Menu isMenuOpen={isMenuOpen} toggleMenu={() => setIsMenuOpen(false)} />
+    </>
   );
 };
 

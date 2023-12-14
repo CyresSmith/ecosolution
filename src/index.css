@@ -47,7 +47,7 @@ ol {
 img {
   display: block;
   max-width: 100%;
-  height: auto;ц
+  height: auto;
 }
 
 a {
@@ -58,7 +58,6 @@ a {
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
- 
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;

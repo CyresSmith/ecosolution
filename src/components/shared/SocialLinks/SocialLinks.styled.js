@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import theme from 'theme';
 
+const maxWidth = parseInt(theme.mediaBreakpoints.desktop.width) - 1;
+
 export const SocialBox = styled.ul`
   display: flex;
   align-items: center;
@@ -19,6 +21,10 @@ export const SocialBox = styled.ul`
 
       :hover {
         fill: ${theme.colors.accent.regular};
+      }
+
+      @media screen and (width <= ${maxWidth}px) {
+        padding: 12px;
       }
     }
 

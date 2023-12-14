@@ -48,7 +48,8 @@ fields.forEach(item => {
 
 const ContactForm = () => {
   const handleSubmit = values => {
-    console.log('values: ', values);
+    const formData = JSON.stringify(values);
+    alert(formData);
   };
 
   return (

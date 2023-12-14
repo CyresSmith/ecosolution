@@ -41,6 +41,7 @@ const Hero = () => {
                   variant="transparent"
                   iconSize="l"
                   Icon={ArrowRight}
+                  offset={-110}
                 >
                   Learn more
                 </StyledLink>

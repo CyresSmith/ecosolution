@@ -6,6 +6,7 @@ const StyledLink = ({
   variant = 'primary',
   Icon,
   href,
+  offset = 50,
 }) => {
   return (
     <Link
@@ -14,7 +15,7 @@ const StyledLink = ({
       to={href}
       spy={true}
       smooth={true}
-      offset={0}
+      offset={offset}
       duration={1000}
     >
       {children} <span>{Icon && <Icon />}</span>

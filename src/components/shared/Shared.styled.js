@@ -37,7 +37,7 @@ export const Section = styled.section`
 export const Hr = styled.hr`
   width: 100%;
   border: none;
-  border-top: 1px solid ${theme.colors.primary.regular};
+  border-top: 1px solid ${theme.colors.accent.regular};
   margin: 0;
 `;
 
@@ -52,7 +52,7 @@ export const VerticalHr = styled.div`
   width: 1px;
   height: ${p => (p.height ? `${p.height}px` : '100%;')};
   margin: ${p => (p.margin ? `${p.margin}` : '0')};
-  border-left: 1px solid ${theme.colors.primary.regular};
+  border-left: 1px solid ${theme.colors.accent.regular};
 `;
 
 export const Title = styled.h3`

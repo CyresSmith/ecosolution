@@ -30,6 +30,7 @@ export const Title = styled.h3`
   text-transform: uppercase;
   line-height: 1;
   margin-bottom: 24px;
+  width: 320px;
 
   @media screen and (${theme.mediaBreakpoints.tablet.width} <= width) {
     margin-bottom: 0;

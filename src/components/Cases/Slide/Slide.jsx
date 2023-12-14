@@ -1,5 +1,6 @@
 import ArrowRight from 'assets/svg/arrow_right.svg?react';
 import ImageBox from 'components/shared/ImageBox';
+import useMediaHook from 'hooks/useMediaHook';
 import { useState } from 'react';
 import {
   Caption,
@@ -11,23 +12,27 @@ import {
   TitleBox,
 } from './Slide.styled';
 
-const Slide = ({ place, name, text, date, img, href = '/' }) => {
+const Slide = ({ slideWidth, place, title, text, date, img, href = '/' }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { MediaType } = useMediaHook();
 
   return (
     <SlideBox
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      slideWidth={slideWidth}
     >
       <a href={href}>
         <SlideFigure>
-          <ImageBox src={img} height="296px" />
-          <Caption>
+          <ImageBox
+            src={img}
+            height={MediaType !== 'desktop' ? '168px' : '296px'}
+          />
+          <Caption
+            height={MediaType !== 'desktop' ? '100% - 168px' : '100% - 296px'}
+          >
             <TitleBox>
-              <Title>
-                <span>{place}</span>
-                <span>{name}</span>
-              </Title>
+              <Title>{title}</Title>
 
               <DotWithArrow isHovered={isHovered}>
                 <ArrowRight />

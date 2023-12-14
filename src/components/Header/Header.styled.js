@@ -15,7 +15,7 @@ export const HeaderBox = styled.header`
   transition: ${theme.transition.primary};
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.nav`
   width: 100%;
   height: 100%;
   display: flex;

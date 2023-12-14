@@ -1,4 +1,4 @@
-import { Container, Section, Title } from 'components/shared/Shared.styled';
+import { Container, Section } from 'components/shared/Shared.styled';
 import { Element } from 'react-scroll';
 import {
   Contact,
@@ -7,6 +7,7 @@ import {
   ContactName,
   ContactsList,
   ContentBox,
+  Title,
 } from './ContactUs.styled';
 
 import { GoogleMapsLink } from 'App';
@@ -19,7 +20,7 @@ import ContactForm from './ContactForm';
 const contacts = {
   phone: ['38 (098) 12 34 567', '38 (093) 12 34 567'],
   email: ['office@ecosolution.com'],
-  address: ['79005, Ukraine, Lviv, street. Shota Rustaveli, 7'],
+  address: ['79005, Ukraine, Lvivstreet. Shota Rustaveli, 7'],
 };
 
 const ContactUs = () => {
@@ -66,9 +67,7 @@ const ContactUs = () => {
     <Element name="contacts">
       <Section>
         <Container>
-          <Title align="center" margin="0 0 120px 0">
-            Contact Us
-          </Title>
+          <Title>Contact Us</Title>
 
           <ContentBox>
             <address>
@@ -89,9 +88,16 @@ const ContactUs = () => {
                   );
                 })}
 
-                <SocialLinks light />
+                <Contact>
+                  <p>
+                    <ContactName>Social Networks:</ContactName>
+                  </p>
+
+                  <SocialLinks light />
+                </Contact>
               </ContactsList>
             </address>
+
             <ContactForm />
           </ContentBox>
         </Container>

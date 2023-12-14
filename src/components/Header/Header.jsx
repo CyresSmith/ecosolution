@@ -31,9 +31,7 @@ const Header = () => {
       <HeaderBox scrollValue={scroll}>
         <Container>
           <Wrapper>
-            <nav>
-              <Logo />
-            </nav>
+            <Logo />
 
             <ActionBox>
               <IconButton
@@ -43,7 +41,7 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(true)}
               />
 
-              <StyledLink Icon={ArrowDown} href="contacts">
+              <StyledLink Icon={ArrowDown} href="contacts" offset={-110}>
                 Get in touch
               </StyledLink>
             </ActionBox>

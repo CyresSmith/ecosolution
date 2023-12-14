@@ -1,10 +1,15 @@
 import ArrowDown from 'assets/svg/arrow_down.svg?react';
-import { Container, Section, Title } from 'components/shared/Shared.styled';
+import { Container, Section } from 'components/shared/Shared.styled';
 import StyledLink from 'components/ui/StyledLink';
 import { useEffect, useState } from 'react';
-import { FaqBox, LeftSide, RightSide } from './Faq.styled';
+import {
+  AskQuestion,
+  ContactBox,
+  FaqBox,
+  QuestionBox,
+  Title,
+} from './Faq.styled';
 import Question from './Question';
-import { Title as QuestionTitle } from './Question/Question.styled';
 
 const questions = [
   {
@@ -56,7 +61,9 @@ const Faq = () => {
     <Section>
       <Container>
         <FaqBox>
-          <LeftSide>
+          <Title>Frequently Asked Questions</Title>
+
+          <QuestionBox>
             {questions.map(item => (
               <Question
                 key={item.id}
@@ -65,21 +72,17 @@ const Faq = () => {
                 {...item}
               />
             ))}
-          </LeftSide>
+          </QuestionBox>
 
-          <RightSide>
-            <Title width={398}>Frequently Asked Questions</Title>
+          <ContactBox>
+            <AskQuestion>
+              Didn&#39;t find the answer to your question?
+            </AskQuestion>
 
-            <div>
-              <QuestionTitle>
-                Didn&#39;t find the answer to your question?
-              </QuestionTitle>
-
-              <StyledLink Icon={ArrowDown} href="contacts">
-                Contact Us
-              </StyledLink>
-            </div>
-          </RightSide>
+            <StyledLink Icon={ArrowDown} href="contacts" offset={-110}>
+              Contact Us
+            </StyledLink>
+          </ContactBox>
         </FaqBox>
       </Container>
     </Section>

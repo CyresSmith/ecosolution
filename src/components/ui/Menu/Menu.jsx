@@ -15,10 +15,10 @@ import {
 } from './Menu.styled';
 
 const links = [
-  { title: 'Main', to: 'top' },
-  { title: 'About', to: 'about' },
-  { title: 'Cases', to: 'cases' },
-  { title: 'Contact Us', to: 'contacts' },
+  { title: 'Main', to: 'top', offset: 0 },
+  { title: 'About', to: 'about', offset: -110 },
+  { title: 'Cases', to: 'cases', offset: -110 },
+  { title: 'Contact Us', to: 'contacts', offset: -110 },
 ];
 
 const modalRoot = document.querySelector('#modal-root');
@@ -68,7 +68,7 @@ const Menu = ({ isMenuOpen, toggleMenu }) => {
                   }}
                   spy={true}
                   smooth={true}
-                  offset={-70}
+                  offset={item.offset}
                   duration={1000}
                   to={item.to}
                 >

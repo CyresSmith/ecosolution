@@ -36,6 +36,7 @@ p {
   padding: 0;
 }
 
+nav,
 ul,
 ol {
   margin: 0;
@@ -46,7 +47,7 @@ ol {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  height: auto;ц
 }
 
 a {
@@ -57,16 +58,17 @@ a {
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
-  background-color: 'transperent';
+ 
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #97d28b;
 }
+
 ::-webkit-scrollbar-track {
   border-radius: 10px;
-  background-color: 'transperent';
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #86bb7c;
 }

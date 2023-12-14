@@ -46,18 +46,18 @@ export const HeroTitle = styled.h1`
   display: block;
   width: 100%;
   font-size: 36px;
-
-  @media ${theme.mediaBreakpoints.mobile.media} {
-  }
+  width: 320px;
 
   @media ${theme.mediaBreakpoints.tablet.media} {
     width: 300px;
     font-size: ${theme.fontSizes.xl};
+    margin-top: 3px;
   }
 
   @media ${theme.mediaBreakpoints.desktop.media} {
     width: 485px;
     font-size: ${theme.fontSizes.xxl};
+    margin-top: 8px;
   }
 `;
 

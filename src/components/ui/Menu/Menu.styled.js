@@ -21,8 +21,14 @@ export const MenuBox = styled.div`
     transform: translateX(50%);
   }
 
-  @media screen and (768px <= width) {
-    right: calc(((100vw - 768px) / 2) + 20px);
+  @media ${theme.mediaBreakpoints.tablet.media} {
+    right: calc(((100vw - ${theme.mediaBreakpoints.tablet.width}) / 2) + 30px);
+    padding: 24px;
+    gap: 16px;
+  }
+
+  @media ${theme.mediaBreakpoints.desktop.media} {
+    right: calc(((100vw - ${theme.mediaBreakpoints.desktop.width}) / 2) + 20px);
     padding: 24px;
     gap: 16px;
   }

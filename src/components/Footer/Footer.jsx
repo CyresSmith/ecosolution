@@ -3,13 +3,16 @@ import Arrow from 'assets/svg/arrow_right.svg?react';
 import Logo from 'components/Logo';
 import { Container } from 'components/shared/Shared.styled';
 import SocialLinks from 'components/shared/SocialLinks';
+import { Link } from 'react-scroll';
 import {
-  FirsColumn,
+  Address,
+  Ecosolution,
+  Email,
   FooterBox,
   FooterWrapper,
   IconLink,
-  SecondColumn,
-  ThirdColumn,
+  LogoBox,
+  Social,
 } from './Footer.styled';
 
 const Footer = () => {
@@ -17,38 +20,39 @@ const Footer = () => {
     <FooterBox>
       <Container>
         <FooterWrapper>
-          <FirsColumn>
-            <li>
-              <Logo />
-            </li>
-            <li>
-              <a href={GoogleMapsLink}>
-                79005, Ukraine, Lvivstreet. Shota Rustaveli, 7
-              </a>
-            </li>
-          </FirsColumn>
+          <LogoBox>
+            <Logo />
+          </LogoBox>
 
-          <SecondColumn>
-            <SocialLinks />
-
-            <li>
-              <a href="mailto:office@ecosolution.com">office@ecosolution.com</a>
-            </li>
-          </SecondColumn>
-
-          <ThirdColumn>
-            <IconLink
-              to="top"
+          <IconLink>
+            <Link
               spy={true}
               smooth={true}
               offset={-70}
               duration={1000}
+              to="top"
             >
               <Arrow />
-            </IconLink>
+            </Link>
+          </IconLink>
 
+          <Social>
+            <SocialLinks />
+          </Social>
+
+          <Address>
+            <a href={GoogleMapsLink}>
+              79005, Ukraine, Lvivstreet. Shota Rustaveli, 7
+            </a>
+          </Address>
+
+          <Email>
+            <a href="mailto:office@ecosolution.com">office@ecosolution.com</a>
+          </Email>
+
+          <Ecosolution>
             <p>ecosolution © 2023</p>
-          </ThirdColumn>
+          </Ecosolution>
         </FooterWrapper>
       </Container>
     </FooterBox>

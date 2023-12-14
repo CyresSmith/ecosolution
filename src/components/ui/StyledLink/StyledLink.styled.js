@@ -21,7 +21,7 @@ export const Link = styled(ScrollLink)`
         return `${theme.colors.primary.regular}`;
 
       default:
-        return `none`;
+        return `unset`;
     }
   }};
   border-radius: 20px;
@@ -86,7 +86,7 @@ export const Link = styled(ScrollLink)`
           return `${theme.colors.accent.dark}`;
 
         default:
-          return `none`;
+          return `unset`;
       }
     }};
     background-color: ${p => {

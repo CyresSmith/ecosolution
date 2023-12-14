@@ -238,7 +238,7 @@ Error generating stack: `+o.message+`
   @media ${c.mediaBreakpoints.desktop.media} {
     grid-template-rows: ${e=>`repeat(${e.rowsCount}, 339px)`};
   }
-`,k4="/assets/man-worker-firld-by-solar-panels 1-DvnRMsb0.jpg",E4="/assets/wind-farms-fields 1-9m0S0eXZ.jpg",$4=O.div`
+`,k4="/ecosolution/assets/man-worker-firld-by-solar-panels 1-DvnRMsb0.jpg",E4="/ecosolution/assets/wind-farms-fields 1-9m0S0eXZ.jpg",$4=O.div`
   width: ${e=>e.width};
   height: ${e=>e.height};
   object-fit: cover;
@@ -445,7 +445,7 @@ Error generating stack: `+o.message+`
   @media ${c.mediaBreakpoints.desktop.media} {
     gap: 48px;
   }
-`,D4="/assets/kherson-clpq4lKT.jpg",B4="/assets/lviv-LnKBGnvw.jpg",H4="/assets/rivne--Evj7jWr.jpg",V4="/assets/zaporizhia-DDmIG8CR.jpg",U4="/assets/zhytomyr-Dbh380lE.jpg",W4=O.li`
+`,D4="/ecosolution/assets/kherson-clpq4lKT.jpg",B4="/ecosolution/assets/lviv-LnKBGnvw.jpg",H4="/ecosolution/assets/rivne--Evj7jWr.jpg",V4="/ecosolution/assets/zaporizhia-DDmIG8CR.jpg",U4="/ecosolution/assets/zhytomyr-Dbh380lE.jpg",W4=O.li`
   flex-shrink: 0;
 
   @media ${c.mediaBreakpoints.mobile.media} {
@@ -1259,7 +1259,7 @@ attempted value: ${a}
       display: none;
     }
   }
-`,nk=()=>{const[e,t]=y.useState(0),[n,r]=y.useState(!1);return y.useEffect(()=>{const i=()=>{const o=window.scrollY;t(o)};return window.addEventListener("scroll",i),()=>{window.removeEventListener("scroll",i)}},[]),v.jsxs(v.Fragment,{children:[v.jsx(JS,{scrollValue:e,children:v.jsx(kn,{children:v.jsxs(ek,{children:[v.jsx(cm,{}),v.jsxs(tk,{children:[v.jsx(tu,{size:"s",variant:"light",Icon:HS,onClick:()=>r(!0)}),v.jsx(Bc,{Icon:um,href:"contacts",offset:-110,children:"Get in touch"})]})]})})}),v.jsx(qS,{isMenuOpen:n,toggleMenu:()=>r(!1)})]})},rk="/assets/wind-turbine-clean-energy-iIAzEFzv.jpg",ik=O.section`
+`,nk=()=>{const[e,t]=y.useState(0),[n,r]=y.useState(!1);return y.useEffect(()=>{const i=()=>{const o=window.scrollY;t(o)};return window.addEventListener("scroll",i),()=>{window.removeEventListener("scroll",i)}},[]),v.jsxs(v.Fragment,{children:[v.jsx(JS,{scrollValue:e,children:v.jsx(kn,{children:v.jsxs(ek,{children:[v.jsx(cm,{}),v.jsxs(tk,{children:[v.jsx(tu,{size:"s",variant:"light",Icon:HS,onClick:()=>r(!0)}),v.jsx(Bc,{Icon:um,href:"contacts",offset:-110,children:"Get in touch"})]})]})})}),v.jsx(qS,{isMenuOpen:n,toggleMenu:()=>r(!1)})]})},rk="/ecosolution/assets/wind-turbine-clean-energy-iIAzEFzv.jpg",ik=O.section`
   width: 100%;
   padding: 222px 0 0 0;
 
